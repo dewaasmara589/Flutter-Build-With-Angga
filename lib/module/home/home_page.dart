@@ -19,7 +19,8 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
                 onPressed: (){
                   // Cara 1
-                  context.go("/profile");
+                  context.go("/profile/21/edit?id_query=666&id_query2=1000",
+                  extra: "777");
 
                   // Cara 2
                   // GoRouter.of(context).go("/profile");

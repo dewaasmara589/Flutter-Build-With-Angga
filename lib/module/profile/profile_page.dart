@@ -4,6 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatelessWidget{
+  const ProfilePage({
+    super.key,
+    required this.id,
+    required this.tab,
+    required this.idFromQueryParam,
+    required this.idFromExtra,
+  });
+
+  final String id;
+  final String tab;
+  final String idFromQueryParam;
+  final String idFromExtra;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +29,10 @@ class ProfilePage extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text("Profile with ID : $id"),
+            Text("Profile with Tab : $tab"),
+            Text("Profile with ID (Query Param) : $idFromQueryParam"),
+            Text("Profile with ID (Extra) : $idFromExtra"),
             ElevatedButton(
                 onPressed: () {
                   context.go("/");
