@@ -18,12 +18,16 @@ class HomePage extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: (){
-                  // Cara 1
-                  context.go("/profile/21?id_query=666&id_query2=1000",
-                  extra: "777");
+                  // Cara 1 Recommended
+                  // context.go("/profile/21?id_query=666&id_query2=1000",
+                  // extra: "777");
 
                   // Cara 2
                   // GoRouter.of(context).go("/profile");
+
+                  // Cara 3 Push
+                  context.push("/profile/21?id_query=666&id_query2=1000",
+                      extra: "777");
                 },
                 child: Text("Go to Profile Page")
             ),

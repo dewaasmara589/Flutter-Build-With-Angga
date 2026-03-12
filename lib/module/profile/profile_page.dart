@@ -35,7 +35,11 @@ class ProfilePage extends StatelessWidget{
             Text("Profile with ID (Extra) : $idFromExtra"),
             ElevatedButton(
                 onPressed: () {
-                  context.go("/profile/$id/edit");
+                  // context.go("/profile/$id/edit");
+
+                  // Cara 2 Alternatif push agar page sebelumnya tidak close
+                  // kekurangannya jika di refresh akan langsung kembali ke home
+                  context.push("/profile/$id/edit");
                 },
                 child: Text("Go to Edit Profile")
             )
