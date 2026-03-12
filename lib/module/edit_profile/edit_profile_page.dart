@@ -3,25 +3,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ProfilePage extends StatelessWidget{
-  const ProfilePage({
+class EditProfilePage extends StatelessWidget{
+  const EditProfilePage({
     super.key,
     required this.id,
-    // required this.tab,
-    required this.idFromQueryParam,
-    required this.idFromExtra,
   });
 
   final String id;
-  // final String tab;
-  final String idFromQueryParam;
-  final String idFromExtra;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile Page"),
+        title: Text("Edit Profile Page"),
       ),
       body: Center(
         child: Column(
@@ -29,20 +23,17 @@ class ProfilePage extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Profile with ID : $id"),
-            // Text("Profile with Tab : $tab"),
-            Text("Profile with ID (Query Param) : $idFromQueryParam"),
-            Text("Profile with ID (Extra) : $idFromExtra"),
+            Text("Edit Profile with ID : $id"),
             ElevatedButton(
                 onPressed: () {
-                  context.go("/profile/$id/edit");
+                  context.go("/");
                 },
-                child: Text("Go to Edit Profile")
+                child: Text("Back to Home")
             )
           ],
         ),
       ),
     );
   }
-  
+
 }
