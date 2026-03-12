@@ -1,4 +1,6 @@
 import 'package:go_router/go_router.dart';
+import 'package:modern_navigation_go_router/module/event/event_page.dart';
+import 'package:modern_navigation_go_router/module/event_detail/event_detail_page.dart';
 import 'package:modern_navigation_go_router/module/profile/profile_page.dart';
 
 import '../module/edit_profile/edit_profile_page.dart';
@@ -21,7 +23,24 @@ class AppRouter {
         path: "/",
         builder: (context, state)  {
           return HomePage();
-        }
+        },
+        // NESTED ROUTE
+        routes: [
+          GoRoute(
+              path: "event",
+              builder: (context, state)  {
+                return EventPage();
+              },
+              routes: [
+                GoRoute(
+                    path: "detail",
+                    builder: (context, state)  {
+                      return EventDetailPage();
+                    }
+                )
+              ]
+          )
+        ]
       ),
       GoRoute(
         // parsing data use path

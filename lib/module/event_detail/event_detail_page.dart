@@ -3,12 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class HomePage extends StatelessWidget {
+class EventDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Page"),
+        title: Text("Event Detail Page"),
       ),
       body: Center(
         child: Column(
@@ -18,25 +18,14 @@ class HomePage extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: (){
-                  // Cara 1
-                  context.go("/profile/21?id_query=666&id_query2=1000",
-                  extra: "777");
-
-                  // Cara 2
-                  // GoRouter.of(context).go("/profile");
+                  context.go("/");
                 },
-                child: Text("Go to Profile Page")
-            ),
-            ElevatedButton(
-                onPressed: (){
-                  context.go("/event");
-                },
-                child: Text("Go to Event Page")
+                child: Text("Go to Home")
             )
           ],
         ),
       ),
     );
   }
-  
+
 }
