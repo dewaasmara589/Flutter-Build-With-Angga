@@ -38,6 +38,7 @@ dependencies:
   # installing package use riverpod_generator + flutter_hooks
   flutter_riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
+  uuid: ^4.3.3
 
 dev_dependencies:
   flutter_test:
