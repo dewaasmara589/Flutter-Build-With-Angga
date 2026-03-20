@@ -6,7 +6,8 @@ import 'package:uuid/uuid.dart';
 // tambahkan ini lalu jalankan di terminal 'dart run build_runner watch'
 part 'todo_provider.g.dart';
 
-@riverpod
+// menyimpan data state agar tidak dihapus ketika pindah halaman
+@Riverpod(keepAlive: true)
 class TodoNotifier extends _$TodoNotifier {
   @override
   List<Todo> build() => <Todo>[];

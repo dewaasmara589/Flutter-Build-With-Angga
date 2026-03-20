@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_flutter/pages/counter_page.dart';
+import 'package:riverpod_flutter/pages/home_page.dart';
+import 'package:riverpod_flutter/pages/todo_page.dart';
 
 void main() {
   runApp(
@@ -20,7 +22,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: CounterPage(),
+      home: HomePage(),
+      routes: {
+        "/counter": (context) => const CounterPage(),
+        "/todo": (context) => const TodoPage(),
+      },
     );
   }
 }
