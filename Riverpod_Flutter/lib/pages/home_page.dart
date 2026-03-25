@@ -34,6 +34,17 @@ class HomePage extends StatelessWidget{
               foregroundColor: Colors.white, // Text/icon color
             ),
           ),
+          SizedBox(height: 20.0,),
+          ElevatedButton(
+            onPressed: (){
+              Navigator.pushNamed(context, '/livegame');
+            },
+            child: Text("Live Game"),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.deepOrange, // Background color
+              foregroundColor: Colors.white, // Text/icon color
+            ),
+          ),
         ],
       ),
     );

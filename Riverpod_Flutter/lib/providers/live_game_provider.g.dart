@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'counter_provider.dart';
+part of 'live_game_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$counterNotifierHash() => r'fc8aeb49703eda96e1d6826e8b7b19369b697bf3';
+String _$liveGameNotifierHash() => r'f13a716e0dea2642d929708c211cffb68e3c7f93';
 
-/// See also [CounterNotifier].
-@ProviderFor(CounterNotifier)
-final counterNotifierProvider =
-    AutoDisposeNotifierProvider<CounterNotifier, int>.internal(
-      CounterNotifier.new,
-      name: r'counterNotifierProvider',
+/// See also [LiveGameNotifier].
+@ProviderFor(LiveGameNotifier)
+final liveGameNotifierProvider =
+    AutoDisposeNotifierProvider<LiveGameNotifier, LiveGameState>.internal(
+      LiveGameNotifier.new,
+      name: r'liveGameNotifierProvider',
       debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
           ? null
-          : _$counterNotifierHash,
+          : _$liveGameNotifierHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
 
-typedef _$CounterNotifier = AutoDisposeNotifier<int>;
+typedef _$LiveGameNotifier = AutoDisposeNotifier<LiveGameState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
