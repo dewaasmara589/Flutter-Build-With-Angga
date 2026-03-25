@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'live_game_provider.dart';
+part of 'genre_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$liveGameNotifierHash() => r'2e94732e4b3b56cb7f2f02e1b96ba11860241603';
+String _$genreNotifierHash() => r'776d4d8e39687414b40594b7f703f67dafbcbba8';
 
-/// See also [LiveGameNotifier].
-@ProviderFor(LiveGameNotifier)
-final liveGameNotifierProvider =
-    AutoDisposeNotifierProvider<LiveGameNotifier, LiveGameState>.internal(
-      LiveGameNotifier.new,
-      name: r'liveGameNotifierProvider',
+/// See also [GenreNotifier].
+@ProviderFor(GenreNotifier)
+final genreNotifierProvider =
+    AutoDisposeNotifierProvider<GenreNotifier, String>.internal(
+      GenreNotifier.new,
+      name: r'genreNotifierProvider',
       debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
           ? null
-          : _$liveGameNotifierHash,
+          : _$genreNotifierHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
 
-typedef _$LiveGameNotifier = AutoDisposeNotifier<LiveGameState>;
+typedef _$GenreNotifier = AutoDisposeNotifier<String>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

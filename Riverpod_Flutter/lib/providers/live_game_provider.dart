@@ -31,8 +31,6 @@ class LiveGameNotifier extends _$LiveGameNotifier {
     }else{
       state = LiveGameState('success', '', games);
     }
-
-    print("State : $state");
   }
 }
 
