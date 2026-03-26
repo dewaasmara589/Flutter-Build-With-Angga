@@ -233,6 +233,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0+7.7.0"
+  d_input:
+    dependency: "direct main"
+    description:
+      name: d_input
+      sha256: "6ad04c5eb821f0a03514f29e47b24c3778e97a19b2540c1ff3564422a1782595"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.4"
   dart_style:
     dependency: transitive
     description:

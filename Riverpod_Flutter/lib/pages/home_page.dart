@@ -45,6 +45,17 @@ class HomePage extends StatelessWidget{
               foregroundColor: Colors.white, // Text/icon color
             ),
           ),
+          SizedBox(height: 20.0,),
+          ElevatedButton(
+            onPressed: (){
+              Navigator.pushNamed(context, '/person');
+            },
+            child: Text("Person"),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.deepPurple, // Background color
+              foregroundColor: Colors.white, // Text/icon color
+            ),
+          ),
         ],
       ),
     );

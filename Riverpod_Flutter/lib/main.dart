@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_flutter/pages/counter_page.dart';
 import 'package:riverpod_flutter/pages/home_page.dart';
 import 'package:riverpod_flutter/pages/live_game_page.dart';
+import 'package:riverpod_flutter/pages/person_page.dart';
 import 'package:riverpod_flutter/pages/todo_page.dart';
 
 class MyHttpOverrides extends HttpOverrides {
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         "/counter": (context) => const CounterPage(),
         "/todo": (context) => const TodoPage(),
         "/livegame": (context) => const LiveGamePage(),
+        "/person": (context) => const PersonPage(),
       },
     );
   }
