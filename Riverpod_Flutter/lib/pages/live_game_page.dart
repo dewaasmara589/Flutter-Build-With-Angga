@@ -114,10 +114,42 @@ class _LiveGamePageState extends ConsumerState<LiveGamePage>{
                       ),
                       itemBuilder: (context, index) {
                         Game game = games[index];
-                        return ExtendedImage.network(
-                          // ! untuk error agument String?
-                          game.thumbnail!,
-                          fit: BoxFit.cover,
+                        return Stack(
+                          children: [
+                            Positioned.fill(
+                              child: ExtendedImage.network(
+                                // ! untuk error agument String?
+                                game.thumbnail!,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentGeometry.bottomCenter,
+                              child: Container(
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: AlignmentGeometry.bottomCenter,
+                                    end: AlignmentGeometry.topCenter,
+                                    colors: [
+                                      Colors.black,
+                                      Colors.transparent
+                                    ]
+                                  )
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentGeometry.bottomRight,
+                              child: IconButton(
+                                  onPressed: (){
+                                    ref.read(liveGameNotifierProvider.notifier)
+                                        .changeIsSaved(game.copyWith(isSaved: !game.isSaved));
+                                  },
+                                  icon: game.isSaved? const Icon(Icons.bookmark, color: Colors.blue,) : const Icon(Icons.bookmark_border, color: Colors.white,)
+                              )
+                            )
+                          ],
                         );
                       }
                   );

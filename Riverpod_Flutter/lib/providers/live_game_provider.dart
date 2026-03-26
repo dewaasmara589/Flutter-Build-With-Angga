@@ -32,6 +32,12 @@ class LiveGameNotifier extends _$LiveGameNotifier {
       state = LiveGameState('success', '', games);
     }
   }
+
+  changeIsSaved(Game newGame) {
+    int index = state.data.indexWhere((_element) => _element.id == newGame.id);
+    state.data[index] = newGame;
+    state = LiveGameState('success', '', [...state.data]);
+  }
 }
 
 class LiveGameState extends Equatable{
