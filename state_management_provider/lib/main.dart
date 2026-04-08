@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:state_management_provider/pages/todo_page.dart';
+import 'package:state_management_provider/providers/todo_provider.dart';
 
-import 'counter_provider.dart';
+import 'providers/counter_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => TodoProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -20,6 +29,9 @@ class MyApp extends StatelessWidget {
           colorScheme: .fromSeed(seedColor: Colors.deepPurple),
         ),
         home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        routes: {
+          '/todo': (context) => const TodoPage(),
+        },
       ),
     );
   }
@@ -41,13 +53,28 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.blueAccent,
         title: Text(widget.title),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: .center,
           children: [
+            SizedBox(height: 20.0,),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const TodoPage()),
+                  );
+                },
+                child: Text("ToDo"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+              ),
+            ),
+            Spacer(),
             const Text('You have pushed the button this many times:'),
             // TODO implement counter provider use Consumer
             // Cara 1 rekomendasi cara tebaik
@@ -68,6 +95,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
             // Cara 3 lebih baik
             // TextCounter(),
+
+            Spacer(),
           ],
         ),
       ),
