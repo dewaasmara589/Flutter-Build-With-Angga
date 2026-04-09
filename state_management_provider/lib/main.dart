@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:state_management_provider/pages/person_page.dart';
 import 'package:state_management_provider/pages/todo_page.dart';
+import 'package:state_management_provider/providers/person_provider.dart';
 import 'package:state_management_provider/providers/todo_provider.dart';
 
 import 'providers/counter_provider.dart';
@@ -10,6 +12,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => TodoProvider()),
+        ChangeNotifierProvider(create: (_) => PersonProvider()),
       ],
       child: const MyApp(),
     ),
@@ -31,6 +34,7 @@ class MyApp extends StatelessWidget {
         home: const MyHomePage(title: 'Flutter Demo Home Page'),
         routes: {
           '/todo': (context) => const TodoPage(),
+          '/person': (context) => const PersonPage(),
         },
       ),
     );
@@ -61,18 +65,37 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: .center,
           children: [
             SizedBox(height: 20.0,),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const TodoPage()),
-                  );
-                },
-                child: Text("ToDo"),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                foregroundColor: Colors.white,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const TodoPage()),
+                    );
+                  },
+                  child: Text("ToDo"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+                SizedBox(width: 20.0,),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const PersonPage()),
+                    );
+                  },
+                  child: Text("Person"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepOrange,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+              ],
             ),
             Spacer(),
             const Text('You have pushed the button this many times:'),
