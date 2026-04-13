@@ -6,6 +6,13 @@ import '../model/game.dart';
 enum GameStatus {init, loading, loaded, failure}
 
 class GameProvider extends ChangeNotifier {
+  String genre = 'Shooter';
+
+  setGenre(String n){
+    genre = n;
+    notifyListeners();
+  }
+
   GameStatus status = GameStatus.init;
 
   List<Game> _games = [];
