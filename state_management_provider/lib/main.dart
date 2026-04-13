@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_management_provider/pages/person_page.dart';
+import 'package:state_management_provider/pages/todo_multiple_page.dart';
 import 'package:state_management_provider/pages/todo_page.dart';
 import 'package:state_management_provider/providers/person_provider.dart';
+import 'package:state_management_provider/providers/todo_multiple_provider.dart';
 import 'package:state_management_provider/providers/todo_provider.dart';
 
 import 'providers/counter_provider.dart';
@@ -13,6 +15,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => TodoProvider()),
         ChangeNotifierProvider(create: (_) => PersonProvider()),
+        ChangeNotifierProvider(create: (_) => TodoMultipleProvider()),
       ],
       child: const MyApp(),
     ),
@@ -35,6 +38,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/todo': (context) => const TodoPage(),
           '/person': (context) => const PersonPage(),
+          '/todomultiple': (context) => const TodoMultiplePage(),
         },
       ),
     );
@@ -70,10 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const TodoPage()),
-                    );
+                    Navigator.pushNamed(context, '/todo');
                   },
                   child: Text("ToDo"),
                   style: ElevatedButton.styleFrom(
@@ -84,14 +85,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 20.0,),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const PersonPage()),
-                    );
+                    Navigator.pushNamed(context, '/person');
                   },
                   child: Text("Person"),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepOrange,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+                SizedBox(width: 20.0,),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/todomultiple');
+                  },
+                  child: Text("ToDo Multiple"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
                     foregroundColor: Colors.white,
                   ),
                 ),

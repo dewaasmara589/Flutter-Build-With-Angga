@@ -11,7 +11,7 @@ class AnimalsPage extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: const Text('Animal'),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.green,
       ),
       body: Consumer<TodoProvider>(
         builder: (context, todoProvider, child) {
