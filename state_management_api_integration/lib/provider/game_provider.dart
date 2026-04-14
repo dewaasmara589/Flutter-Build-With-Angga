@@ -34,4 +34,16 @@ class GameProvider extends ChangeNotifier {
     status = GameStatus.loaded;
     notifyListeners();
   }
+
+  setIsSaved(Game gameSelected, bool isSaved){
+    // akan mengambalikan -1 jika tidak ketemu
+    int index = games.indexWhere((e) => e.id == gameSelected.id);
+    if(index<0) return;
+
+    List<Game> newGames = games;
+    newGames[index] = gameSelected.copyWith(isSaved: isSaved);
+    _games = newGames;
+    notifyListeners();
+  }
+
 }

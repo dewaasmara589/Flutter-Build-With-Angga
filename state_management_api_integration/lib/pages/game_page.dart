@@ -112,9 +112,58 @@ class _GamePageState extends State<GamePage> {
                       ),
                       itemBuilder: (context, index){
                         Game game = games[index];
-                        return ExtendedImage.network(
-                          game.thumbnail??'',
-                          fit: BoxFit.cover,
+                        return Stack(
+                          children: [
+                            Positioned.fill(
+                              child: ExtendedImage.network(
+                                game.thumbnail ?? '',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: AspectRatio(
+                                aspectRatio: 4,
+                                child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      begin: AlignmentGeometry.bottomCenter,
+                                        end: AlignmentGeometry.topCenter,
+                                        colors: [
+                                          Colors.black,
+                                          Colors.transparent
+                                        ]),
+                                    )
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: IconButton(
+                                onPressed: () {
+                                  // cara 1
+                                  // if (game.isSaved){
+                                  //   // unsaved
+                                  //   context.read<GameProvider>().setIsSaved(game, false);
+                                  // }else{
+                                  //   // saved
+                                  //   context.read<GameProvider>().setIsSaved(game, true);
+                                  // }
+
+                                  // cara 2
+                                  context.read<GameProvider>().setIsSaved(game, !game.isSaved);
+                                },
+                                icon: game.isSaved ? Icon(
+                                  Icons.bookmark,
+                                  color: Colors.blue,
+                                ) : Icon(
+                                  Icons.bookmark_border,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                            )
+                          ],
                         );
                       },
                     );
